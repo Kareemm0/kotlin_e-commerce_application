@@ -36,15 +36,17 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.loginscreen.R
+import com.example.loginscreen.app.routing.Routes
 
 @Composable
-fun LoginScreen(paddingValues: PaddingValues) {
+fun LoginScreen(paddingValues: PaddingValues, navigator: NavController) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordVisibality by remember { mutableStateOf(false) }
@@ -172,7 +174,7 @@ fun LoginScreen(paddingValues: PaddingValues) {
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier
                 .clickable {
-                    //! forget Password Logic
+                    navigator.navigate(Routes.FORGETPASSWORD)
                 }
                 .align(
                     alignment = Alignment.End
@@ -183,11 +185,11 @@ fun LoginScreen(paddingValues: PaddingValues) {
         )
         Spacer(modifier = Modifier.height(16.dp))
         Row {
-            Text(text = "Don't Have an Account ?")
+            Text(text = "Don't Have an Account ? ")
             Text(
-                text = "Sign Up", color = MaterialTheme.colorScheme.primary,
+                text = " Sign Up", color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.clickable {
-                    //! Handle Navigation To Sign UP Screen
+                    navigator.navigate(Routes.SINGUP)
                 }
             )
         }
