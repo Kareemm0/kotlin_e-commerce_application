@@ -1,4 +1,4 @@
-package com.example.Loginscreen.presentation.screens.login
+package com.example.Loginscreen.Presentation.screens.login
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -20,6 +20,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.airbnb.lottie.compose.*
 import com.example.Loginscreen.Core.Component.*
+import com.example.Loginscreen.Core.Extensions.H
+import com.example.Loginscreen.Core.Extensions.W
 import com.example.Loginscreen.app.Routing.Routes
 import com.example.Loginscreen.R
 
@@ -55,7 +57,7 @@ fun LoginScreen(navigator: NavController) {
                 .align(Alignment.CenterHorizontally),
             composition = composition, progress = { progress }
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        16.H
         CustomAppTextFormFiled(
             email,
             {
@@ -75,7 +77,7 @@ fun LoginScreen(navigator: NavController) {
                 )
             },
         )
-        Spacer(modifier = Modifier.height(8.dp))
+        16.H
         CustomAppTextFormFiled(
             password,
             {
@@ -103,7 +105,7 @@ fun LoginScreen(navigator: NavController) {
             },
             visualTransformation = if (passwordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        16.H
         CustomAppButton(
             textButton = "Login",
             onClick = {
@@ -115,7 +117,7 @@ fun LoginScreen(navigator: NavController) {
 
             },
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        16.H
         Text(
             text = "Forget Password?",
             color = MaterialTheme.colorScheme.primary,
@@ -127,9 +129,10 @@ fun LoginScreen(navigator: NavController) {
                     alignment = Alignment.End
                 )
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        16.H
         Row {
             Text(text = "Don't Have an Account ? ")
+            4.W
             Text(
                 text = " Sign Up", color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.clickable {

@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.Loginscreen.presentation.screens.ForgetPassword.ForgetPasswordScreen
-import com.example.Loginscreen.presentation.screens.SignUp.SignUpScreen
-import com.example.Loginscreen.presentation.screens.login.LoginScreen
+import com.example.Loginscreen.Presentation.screens.ForgetPassword.ForgetPasswordScreen
+import com.example.Loginscreen.Presentation.screens.SignUp.SignUpScreen
+import com.example.Loginscreen.Presentation.screens.login.LoginScreen
 
 @Composable
 
