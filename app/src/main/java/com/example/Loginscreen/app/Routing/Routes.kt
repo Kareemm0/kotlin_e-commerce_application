@@ -1,4 +1,4 @@
-package com.example.loginscreen.app.routing
+package com.example.Loginscreen.app.Routing
 
 object Routes {
     const val LOGIN = "login"

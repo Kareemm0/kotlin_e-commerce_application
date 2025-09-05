@@ -1,4 +1,4 @@
-package com.example.loginscreen.presentation.ui.theme
+package com.example.Loginscreen.presentation.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

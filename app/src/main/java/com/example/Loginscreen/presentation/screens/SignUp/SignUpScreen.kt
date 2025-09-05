@@ -1,4 +1,4 @@
-package com.example.loginscreen.presentation.screens.signUp
+package com.example.Loginscreen.presentation.screens.SignUp
 
 import androidx.compose.runtime.Composable
 

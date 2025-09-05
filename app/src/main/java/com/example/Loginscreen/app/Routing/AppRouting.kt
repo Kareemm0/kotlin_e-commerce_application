@@ -1,13 +1,12 @@
-package com.example.loginscreen.app.routing
+package com.example.Loginscreen.app.Routing
 
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.loginscreen.presentation.screens.foget_password.ForgetPasswordScreen
-import com.example.loginscreen.presentation.screens.login.LoginScreen
-import com.example.loginscreen.presentation.screens.signUp.SignUpScreen
+import com.example.Loginscreen.presentation.screens.ForgetPassword.ForgetPasswordScreen
+import com.example.Loginscreen.presentation.screens.SignUp.SignUpScreen
+import com.example.Loginscreen.presentation.screens.login.LoginScreen
 
 @Composable
 
@@ -17,7 +16,7 @@ fun AppRouting(controller: NavHostController) {
         startDestination = Routes.LOGIN,
         navController = controller
     ) {
-        composable(Routes.LOGIN) { LoginScreen(paddingValues = PaddingValues(), controller) }
+        composable(Routes.LOGIN) { LoginScreen(controller) }
         composable(Routes.SINGUP) { SignUpScreen() }
         composable(Routes.FORGETPASSWORD) { ForgetPasswordScreen() }
     }

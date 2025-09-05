@@ -1,4 +1,4 @@
-package com.example.loginscreen.presentation.screens.foget_password
+package com.example.Loginscreen.presentation.screens.ForgetPassword
 
 import androidx.compose.runtime.Composable
 

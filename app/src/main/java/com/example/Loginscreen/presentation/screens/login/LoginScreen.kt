@@ -1,34 +1,15 @@
-package com.example.loginscreen.presentation.screens.login
+package com.example.Loginscreen.presentation.screens.login
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AccountCircle
 import androidx.compose.material.icons.rounded.Lock
-import androidx.compose.material3.Button
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color.Companion.Red
-import androidx.compose.ui.graphics.Color.Companion.Transparent
 import androidx.compose.ui.graphics.Color.Companion.Unspecified
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -37,19 +18,16 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.airbnb.lottie.compose.LottieAnimation
-import com.airbnb.lottie.compose.LottieCompositionSpec
-import com.airbnb.lottie.compose.LottieConstants
-import com.airbnb.lottie.compose.animateLottieCompositionAsState
-import com.airbnb.lottie.compose.rememberLottieComposition
-import com.example.loginscreen.R
-import com.example.loginscreen.app.routing.Routes
+import com.airbnb.lottie.compose.*
+import com.example.Loginscreen.Core.Component.CustomAppTextFormFiled
+import com.example.Loginscreen.app.Routing.Routes
+import com.example.Loginscreen.R
 
 @Composable
-fun LoginScreen(paddingValues: PaddingValues, navigator: NavController) {
+fun LoginScreen(navigator: NavController) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
-    var passwordVisibality by remember { mutableStateOf(false) }
+    var passwordVisibility by remember { mutableStateOf(false) }
     var emailError by remember { mutableStateOf("") }
     var passwordError by remember { mutableStateOf("") }
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.login))
@@ -63,23 +41,26 @@ fun LoginScreen(paddingValues: PaddingValues, navigator: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(paddingValues), horizontalAlignment = Alignment.CenterHorizontally
+            .padding(horizontal = 16.dp, vertical = 24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Text(
+            text = "Login", fontSize =
+                24.sp,
+            fontWeight = FontWeight.ExtraBold
+        )
         LottieAnimation(
             modifier = Modifier
                 .size(300.dp)
                 .align(Alignment.CenterHorizontally),
             composition = composition, progress = { progress }
         )
-        Text(
-            text = "Login", fontSize =
-                24.sp,
-            fontWeight = FontWeight.ExtraBold
-        )
         Spacer(modifier = Modifier.height(16.dp))
-        TextField(
-            value = email,
-            onValueChange = { email = it },
+        CustomAppTextFormFiled(
+            email,
+            {
+                email = it
+            },
             label = {
                 Text(
                     emailError.ifEmpty { "Email" },
@@ -93,25 +74,11 @@ fun LoginScreen(paddingValues: PaddingValues, navigator: NavController) {
                     contentDescription = ""
                 )
             },
-            shape = RoundedCornerShape(8.dp),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    vertical = 4.dp, horizontal = 20.dp
-                ),
-            colors = TextFieldDefaults.colors(
-                focusedIndicatorColor = Transparent,
-                unfocusedIndicatorColor = Transparent,
-
-
-                )
-
-
         )
         Spacer(modifier = Modifier.height(8.dp))
-        TextField(
-            value = password,
-            onValueChange = {
+        CustomAppTextFormFiled(
+            password,
+            {
                 password = it
             },
             label = {
@@ -123,41 +90,23 @@ fun LoginScreen(paddingValues: PaddingValues, navigator: NavController) {
             leadingIcon = {
                 Icon(Icons.Rounded.Lock, contentDescription = "")
             },
-            visualTransformation = if (passwordVisibality) VisualTransformation.None else PasswordVisualTransformation(),
             trailingIcon = {
-                val image = if (passwordVisibality)
+                val image = if (passwordVisibility)
                     painterResource(id = R.drawable.visibility) else
                     painterResource(id = R.drawable.visibility_off)
 
                 Icon(
                     painter = image,
                     contentDescription = "",
-                    modifier = Modifier.clickable { passwordVisibality = !passwordVisibality }
+                    modifier = Modifier.clickable { passwordVisibility = !passwordVisibility }
                 )
-
             },
-            shape = RoundedCornerShape(8.dp),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    vertical = 4.dp,
-                    horizontal = 20.dp,
-                ),
-            colors = TextFieldDefaults.colors(
-                focusedIndicatorColor = Transparent,
-                unfocusedIndicatorColor = Transparent,
-            )
-
-
+            visualTransformation = if (passwordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
         )
         Spacer(modifier = Modifier.height(16.dp))
         Button(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    horizontal = 24.dp,
-                    vertical = 8.dp
-                ),
+                .fillMaxWidth(),
             onClick = {
                 emailError = if (email.isBlank()) "Email is required" else ""
                 passwordError = if (password.isBlank()) "Password is Required " else ""
@@ -179,9 +128,6 @@ fun LoginScreen(paddingValues: PaddingValues, navigator: NavController) {
                 .align(
                     alignment = Alignment.End
                 )
-                .padding(
-                    horizontal = 16.dp
-                ),
         )
         Spacer(modifier = Modifier.height(16.dp))
         Row {
@@ -193,6 +139,7 @@ fun LoginScreen(paddingValues: PaddingValues, navigator: NavController) {
                 }
             )
         }
+       
 
     }
 }
