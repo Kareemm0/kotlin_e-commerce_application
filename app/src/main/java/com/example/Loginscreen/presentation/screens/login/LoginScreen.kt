@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.airbnb.lottie.compose.*
-import com.example.Loginscreen.Core.Component.CustomAppTextFormFiled
+import com.example.Loginscreen.Core.Component.*
 import com.example.Loginscreen.app.Routing.Routes
 import com.example.Loginscreen.R
 
@@ -104,19 +104,17 @@ fun LoginScreen(navigator: NavController) {
             visualTransformation = if (passwordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
         )
         Spacer(modifier = Modifier.height(16.dp))
-        Button(
-            modifier = Modifier
-                .fillMaxWidth(),
+        CustomAppButton(
+            textButton = "Login",
             onClick = {
                 emailError = if (email.isBlank()) "Email is required" else ""
                 passwordError = if (password.isBlank()) "Password is Required " else ""
                 if (emailError.isEmpty() && passwordError.isEmpty()) {
                     //! Handle Login Logic
                 }
-            }
 
-
-        ) { Text(text = "Login ") }
+            },
+        )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
             text = "Forget Password?",
@@ -139,7 +137,7 @@ fun LoginScreen(navigator: NavController) {
                 }
             )
         }
-       
+
 
     }
 }
