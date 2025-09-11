@@ -18,7 +18,7 @@ fun AppRouting(controller: NavHostController) {
         navController = controller
     ) {
         composable(Routes.LOGIN) { LoginScreen(controller) }
-        composable(Routes.SINGUP) { SignUpScreen() }
+        composable(Routes.SINGUP) { SignUpScreen(controller) }
         composable(Routes.FORGETPASSWORD) { ForgetPasswordScreen() }
         composable(Routes.SPLASH) { SplashScreen(controller) }
     }

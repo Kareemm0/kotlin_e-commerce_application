@@ -22,7 +22,7 @@ import androidx.navigation.NavController
 import com.airbnb.lottie.compose.*
 import com.example.Loginscreen.Core.Component.*
 import com.example.Loginscreen.Core.Extensions.H
-import com.example.Loginscreen.Core.Extensions.W
+import com.example.Loginscreen.Presentation.Comonent.HaveAccountText
 import com.example.Loginscreen.app.Routing.Routes
 import com.example.Loginscreen.R
 
@@ -133,16 +133,7 @@ fun LoginScreen(navigator: NavController) {
                 )
         )
         16.H
-        Row {
-            Text(text = "Don't Have an Account ? ")
-            4.W
-            Text(
-                text = " Sign Up", color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.clickable {
-                    navigator.navigate(Routes.SINGUP)
-                }
-            )
-        }
+        HaveAccountText(true, navigator)
 
 
     }
