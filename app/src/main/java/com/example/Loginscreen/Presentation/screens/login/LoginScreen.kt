@@ -2,6 +2,7 @@ package com.example.Loginscreen.Presentation.screens.login
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AccountCircle
 import androidx.compose.material.icons.rounded.Lock
@@ -41,11 +42,13 @@ fun LoginScreen(navigator: NavController) {
     )
 
     Column(
+
         modifier = Modifier
             .fillMaxSize()
             .padding(horizontal = 16.dp, vertical = 24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+        horizontalAlignment = Alignment.CenterHorizontally,
+
+        ) {
         Text(
             text = "Login", fontSize =
                 24.sp,
