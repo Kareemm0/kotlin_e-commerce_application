@@ -2,7 +2,6 @@ package com.example.Loginscreen.Presentation.screens.login
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.AccountCircle
 import androidx.compose.material.icons.rounded.Lock
@@ -22,7 +21,7 @@ import androidx.navigation.NavController
 import com.airbnb.lottie.compose.*
 import com.example.Loginscreen.Core.Component.*
 import com.example.Loginscreen.Core.Extensions.H
-import com.example.Loginscreen.Presentation.Comonent.HaveAccountText
+import com.example.Loginscreen.Presentation.Component.HaveAccountText
 import com.example.Loginscreen.Presentation.ui.theme.primaryColor
 import com.example.Loginscreen.app.Routing.Routes
 import com.example.Loginscreen.R

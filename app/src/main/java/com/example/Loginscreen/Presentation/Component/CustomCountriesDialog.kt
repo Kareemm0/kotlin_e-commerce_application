@@ -1,4 +1,4 @@
-package com.example.Loginscreen.Presentation.Comonent
+package com.example.Loginscreen.Presentation.Component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

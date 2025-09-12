@@ -30,13 +30,12 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavController
 import com.example.Loginscreen.Core.Component.CustomAppButton
 import com.example.Loginscreen.Core.Component.CustomAppTextFormFiled
 import com.example.Loginscreen.Core.Extensions.H
-import com.example.Loginscreen.Presentation.Comonent.CustomCountriesDialog
-import com.example.Loginscreen.Presentation.Comonent.HaveAccountText
+import com.example.Loginscreen.Presentation.Component.CustomCountriesDialog
+import com.example.Loginscreen.Presentation.Component.HaveAccountText
 import com.example.Loginscreen.Presentation.ui.theme.offWhite
 import com.example.Loginscreen.Presentation.ui.theme.primaryColor
 import com.example.Loginscreen.R

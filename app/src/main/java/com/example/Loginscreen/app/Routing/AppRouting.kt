@@ -1,6 +1,8 @@
 package com.example.Loginscreen.app.Routing
 
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -19,7 +21,12 @@ fun AppRouting(controller: NavHostController) {
     ) {
         composable(Routes.LOGIN) { LoginScreen(controller) }
         composable(Routes.SINGUP) { SignUpScreen(controller) }
-        composable(Routes.FORGETPASSWORD) { ForgetPasswordScreen() }
+        composable(Routes.FORGETPASSWORD) {
+            ForgetPasswordScreen(
+                controller,
+                innerPadding = PaddingValues(horizontal = 16.dp)
+            )
+        }
         composable(Routes.SPLASH) { SplashScreen(controller) }
     }
 }
