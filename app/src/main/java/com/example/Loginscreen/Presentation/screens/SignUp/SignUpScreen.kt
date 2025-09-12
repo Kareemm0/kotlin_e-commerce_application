@@ -1,14 +1,13 @@
 package com.example.Loginscreen.Presentation.screens.SignUp
 
-import android.util.Printer
-import android.widget.GridLayout
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeContentPadding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
@@ -31,11 +30,15 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavController
 import com.example.Loginscreen.Core.Component.CustomAppButton
 import com.example.Loginscreen.Core.Component.CustomAppTextFormFiled
 import com.example.Loginscreen.Core.Extensions.H
+import com.example.Loginscreen.Presentation.Comonent.CustomCountriesDialog
 import com.example.Loginscreen.Presentation.Comonent.HaveAccountText
+import com.example.Loginscreen.Presentation.ui.theme.offWhite
+import com.example.Loginscreen.Presentation.ui.theme.primaryColor
 import com.example.Loginscreen.R
 
 @Composable
@@ -59,6 +62,12 @@ fun SignUpScreen(navigator: NavController) {
     //! visibility State
     var passwordVisibility by remember { mutableStateOf(false) }
     var confirmPasswordVisibility by remember { mutableStateOf(false) }
+
+    //! Dialog State
+
+    var isDialogOpen by remember { mutableStateOf(false) }
+
+
 
     Box(
         modifier = Modifier.fillMaxSize(),
@@ -186,6 +195,28 @@ fun SignUpScreen(navigator: NavController) {
                 visualTransformation = if (confirmPasswordVisibility) VisualTransformation.None else PasswordVisualTransformation()
 
             )
+            16.H
+            //! Choose Country
+            Box(
+                contentAlignment = Alignment.CenterStart,
+                modifier = Modifier
+                    .clickable {
+                        isDialogOpen = true
+                    }
+                    .fillMaxWidth(0.5f)
+                    .background(
+                        color = primaryColor, shape = RoundedCornerShape(8.dp)
+                    )
+                    .padding(horizontal = 16.dp, vertical = 12.dp)
+                    .align(Alignment.Start)
+
+            )
+            {
+                Text(
+                    "Choose Your Country",
+                    color = offWhite
+                )
+            }
             24.H
             HaveAccountText(false, navigator)
             24.H
@@ -194,6 +225,17 @@ fun SignUpScreen(navigator: NavController) {
                 textButton = "Sign Up"
             )
 
+
         }
+    }
+
+    if (isDialogOpen) {
+        CustomCountriesDialog(
+            {
+                isDialogOpen = false
+            },
+            "Egypt",
+            painterResource(R.drawable.ic_launcher_background)
+        )
     }
 }

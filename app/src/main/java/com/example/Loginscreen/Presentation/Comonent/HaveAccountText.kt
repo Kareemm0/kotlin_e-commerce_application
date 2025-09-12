@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.example.Loginscreen.Core.Extensions.W
+import com.example.Loginscreen.Presentation.ui.theme.primaryColor
 import com.example.Loginscreen.app.Routing.Routes
 
 @Composable
@@ -20,7 +21,7 @@ fun HaveAccountText(isLogin: Boolean, navigator: NavController) {
         Text(text = if (isLogin) "Don't Have an Account ? " else "Already Have Account ?")
         4.W
         Text(
-            text = if (isLogin) "Sign Up" else "Login", color = MaterialTheme.colorScheme.primary,
+            text = if (isLogin) "Sign Up" else "Login", color = primaryColor,
             modifier = Modifier.clickable {
 
                 if (isLogin) navigator.navigate(Routes.SINGUP) else navigator.navigate(Routes.LOGIN)

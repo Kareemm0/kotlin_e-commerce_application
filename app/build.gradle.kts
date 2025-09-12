@@ -69,5 +69,5 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.android.lottie.compose)
     implementation(libs.androidx.navigation.compose)
-
+    implementation(libs.coil)
 }

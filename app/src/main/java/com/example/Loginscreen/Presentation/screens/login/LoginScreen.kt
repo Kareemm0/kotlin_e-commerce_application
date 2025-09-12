@@ -23,6 +23,7 @@ import com.airbnb.lottie.compose.*
 import com.example.Loginscreen.Core.Component.*
 import com.example.Loginscreen.Core.Extensions.H
 import com.example.Loginscreen.Presentation.Comonent.HaveAccountText
+import com.example.Loginscreen.Presentation.ui.theme.primaryColor
 import com.example.Loginscreen.app.Routing.Routes
 import com.example.Loginscreen.R
 
@@ -123,7 +124,7 @@ fun LoginScreen(navigator: NavController) {
         16.H
         Text(
             text = "Forget Password?",
-            color = MaterialTheme.colorScheme.primary,
+            color = primaryColor,
             modifier = Modifier
                 .clickable {
                     navigator.navigate(Routes.FORGETPASSWORD)
