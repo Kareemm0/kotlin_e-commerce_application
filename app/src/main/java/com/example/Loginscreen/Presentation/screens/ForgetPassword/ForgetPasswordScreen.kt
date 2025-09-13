@@ -2,7 +2,6 @@ package com.example.Loginscreen.Presentation.screens.ForgetPassword
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -24,7 +23,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.graphics.Color.Companion.Unspecified
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.Loginscreen.Core.Component.CustomAppButton
 import com.example.Loginscreen.Core.Component.CustomAppTextFormFiled
@@ -34,7 +32,7 @@ import com.example.Loginscreen.Presentation.ui.theme.primaryColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ForgetPasswordScreen(navigator: NavController, innerPadding: PaddingValues) {
+fun ForgetPasswordScreen(navigator: NavController) {
 
     var email by remember { mutableStateOf("") }
     var emailError by remember { mutableStateOf("") }
@@ -64,10 +62,10 @@ fun ForgetPasswordScreen(navigator: NavController, innerPadding: PaddingValues) 
 
         )
     }
-    ) { _ ->
+    ) {
         Column(
             modifier = Modifier
-                .padding(horizontal = 16.dp)
+                .padding(it)
                 .fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,

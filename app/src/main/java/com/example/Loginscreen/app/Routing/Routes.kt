@@ -5,4 +5,5 @@ object Routes {
     const val FORGETPASSWORD = "forget-password"
     const val SINGUP = "SignUP"
     const val SPLASH = "splash"
+    const val ONBOARDING = "OnBoardingScreen"
 }

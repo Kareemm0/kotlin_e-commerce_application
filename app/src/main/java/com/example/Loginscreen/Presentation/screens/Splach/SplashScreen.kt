@@ -38,7 +38,7 @@ fun SplashScreen(navigator: NavController) {
     LaunchedEffect(Unit) {
         delay(7000)
 
-        navigator.navigate(Routes.LOGIN)
+        navigator.navigate(Routes.ONBOARDING)
     }
 
     Box(

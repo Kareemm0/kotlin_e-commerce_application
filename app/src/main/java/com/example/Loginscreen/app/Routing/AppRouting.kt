@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.Loginscreen.Presentation.screens.ForgetPassword.ForgetPasswordScreen
+import com.example.Loginscreen.Presentation.screens.OnBoarding.OnBoardingScreen
 import com.example.Loginscreen.Presentation.screens.SignUp.SignUpScreen
 import com.example.Loginscreen.Presentation.screens.Splach.SplashScreen
 import com.example.Loginscreen.Presentation.screens.login.LoginScreen
@@ -21,12 +22,8 @@ fun AppRouting(controller: NavHostController) {
     ) {
         composable(Routes.LOGIN) { LoginScreen(controller) }
         composable(Routes.SINGUP) { SignUpScreen(controller) }
-        composable(Routes.FORGETPASSWORD) {
-            ForgetPasswordScreen(
-                controller,
-                innerPadding = PaddingValues(horizontal = 16.dp)
-            )
-        }
+        composable(Routes.FORGETPASSWORD) { ForgetPasswordScreen(controller) }
         composable(Routes.SPLASH) { SplashScreen(controller) }
+        composable(Routes.ONBOARDING) { OnBoardingScreen(controller) }
     }
 }
