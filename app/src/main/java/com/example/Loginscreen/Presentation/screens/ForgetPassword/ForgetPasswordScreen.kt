@@ -23,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.graphics.Color.Companion.Unspecified
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.Loginscreen.Core.Component.CustomAppButton
 import com.example.Loginscreen.Core.Component.CustomAppTextFormFiled
@@ -62,10 +63,10 @@ fun ForgetPasswordScreen(navigator: NavController) {
 
         )
     }
-    ) {
+    ) { _ ->
         Column(
             modifier = Modifier
-                .padding(it)
+                .padding(horizontal = 16.dp)
                 .fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,

@@ -107,19 +107,40 @@ fun OnBoardingScreen(navigator: NavController) {
 
             }
         }, content = {
+
+
             Column(
                 modifier = Modifier
-                    .padding(it),
+                    .padding(it)
+
+
             ) {
+
                 HorizontalPager(pageState) { index ->
                     40.H
                     Column(
                         modifier = Modifier
                             .padding(horizontal = 16.dp)
                             .fillMaxSize(),
+
                         horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.Center,
-                    ) {
+
+                        ) {
+                        Box(
+                            modifier = Modifier.fillMaxWidth(),
+                            contentAlignment = Alignment.CenterEnd,
+
+                            ) {
+                            CustomAppButton(
+                                {
+                                    navigator.navigate(Routes.LOGIN)
+                                },
+                                "Skip",
+                                containerColor = Transparent,
+                                contentColor = primaryColor,
+                                fraction = 0.3f
+                            )
+                        }
                         Image(
                             painter = painterResource(pages[index].image), contentDescription = "",
                             Modifier.size(400.dp)
