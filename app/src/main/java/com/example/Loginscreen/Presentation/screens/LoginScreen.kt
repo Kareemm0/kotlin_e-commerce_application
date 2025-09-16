@@ -1,4 +1,4 @@
-package com.example.Loginscreen.Presentation.screens.login
+package com.example.Loginscreen.Presentation.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -112,10 +112,10 @@ fun LoginScreen(navigator: NavController) {
         CustomAppButton(
             textButton = "Login",
             onClick = {
-                emailError = if (email.isBlank()) "Email is required" else ""
+                emailError = if (email.isBlank()) "Email is Required" else ""
                 passwordError = if (password.isBlank()) "Password is Required " else ""
                 if (emailError.isEmpty() && passwordError.isEmpty()) {
-                    //! Handle Login Logic
+                    navigator.navigate(Routes.NAVBAR)
                 }
 
             },

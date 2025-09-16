@@ -1,4 +1,4 @@
-package com.example.Loginscreen.Presentation.screens.ForgetPassword
+package com.example.Loginscreen.Presentation.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

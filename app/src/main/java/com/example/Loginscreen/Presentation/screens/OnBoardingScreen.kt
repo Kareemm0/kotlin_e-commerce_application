@@ -1,10 +1,11 @@
-package com.example.Loginscreen.Presentation.screens.OnBoarding
+package com.example.Loginscreen.Presentation.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -145,7 +146,7 @@ fun OnBoardingScreen(navigator: NavController) {
                             painter = painterResource(pages[index].image), contentDescription = "",
                             Modifier.size(400.dp)
                         )
-                        androidx.compose.foundation.layout.Spacer(modifier = Modifier.weight(0.5f))
+                        Spacer(modifier = Modifier.weight(0.5f))
 
                         Text(
                             pages[index].title,
@@ -160,7 +161,7 @@ fun OnBoardingScreen(navigator: NavController) {
                             textAlign = TextAlign.Center,
                             fontWeight = FontWeight.Medium,
                         )
-                        androidx.compose.foundation.layout.Spacer(modifier = Modifier.weight(1f))
+                        Spacer(modifier = Modifier.weight(1f))
 
                     }
                 }

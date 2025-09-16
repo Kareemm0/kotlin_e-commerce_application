@@ -1,4 +1,4 @@
-package com.example.Loginscreen.Presentation.screens.SignUp
+package com.example.Loginscreen.Presentation.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
