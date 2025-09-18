@@ -19,7 +19,7 @@ data class BottomNavigationBarModel(
 
 var bottomNavBarScreen = listOf<BottomNavigationBarModel>(
     BottomNavigationBarModel("Home", Routes.HOME, Icons.Default.Home),
-    BottomNavigationBarModel("Cart", Routes.Cart, Icons.Default.ShoppingCart),
+    BottomNavigationBarModel("Cart", Routes.Cart, Icons.Default.ShoppingCart, badge = 10),
     BottomNavigationBarModel("Search", Routes.SEARCH, Icons.Default.Search),
     BottomNavigationBarModel("Settings", Routes.SETTINGS, Icons.Default.Settings),
 )

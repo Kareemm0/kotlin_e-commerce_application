@@ -6,9 +6,9 @@ object Routes {
     const val SINGUP = "SignUP"
     const val SPLASH = "splash"
     const val ONBOARDING = "OnBoardingScreen"
-    const val HOME = "HomeScreen"
-    const val Cart = "CartScreen"
-    const val SEARCH = "SearchScreen"
-    const val SETTINGS = "SettingsScreen"
+    const val HOME = "home"
+    const val Cart = "cart"
+    const val SEARCH = "search"
+    const val SETTINGS = "setting"
     const val NAVBAR = "BottomNavBarScreen"
 }
