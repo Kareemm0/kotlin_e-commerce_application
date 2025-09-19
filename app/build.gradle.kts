@@ -70,4 +70,7 @@ dependencies {
     implementation(libs.android.lottie.compose)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.coil)
+    implementation("com.squareup.retrofit:retrofit:2.0.0-beta2")
+    implementation("com.google.code.gson:gson:2.13.2")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
 }

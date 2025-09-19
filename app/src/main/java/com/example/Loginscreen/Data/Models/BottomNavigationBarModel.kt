@@ -1,11 +1,10 @@
-package com.example.Loginscreen.Data
+package com.example.Loginscreen.Data.Models
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.ShoppingCart
-import androidx.compose.material3.Icon
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.example.Loginscreen.app.Routing.Routes
 

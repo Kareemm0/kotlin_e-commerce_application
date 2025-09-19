@@ -1,4 +1,4 @@
-package com.example.Loginscreen.Data
+package com.example.Loginscreen.Data.Models
 
 import com.example.Loginscreen.R
 
@@ -30,3 +30,4 @@ sealed class OnBoardingModel(
     }
 
 }
+

@@ -31,7 +31,7 @@ import androidx.navigation.NavController
 import com.example.Loginscreen.Core.Component.CustomAppButton
 import com.example.Loginscreen.Core.Extensions.H
 import com.example.Loginscreen.Core.Extensions.W
-import com.example.Loginscreen.Data.OnBoardingModel
+import com.example.Loginscreen.Data.Models.OnBoardingModel
 import com.example.Loginscreen.Presentation.Component.CustomSelectedIndicator
 import com.example.Loginscreen.Presentation.ui.theme.primaryColor
 import com.example.Loginscreen.app.Routing.Routes

@@ -1,30 +1,24 @@
 package com.example.Loginscreen.Presentation.screens
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.BadgedBox
-import androidx.compose.material3.BottomAppBarDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.NavigationBarItemColors
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.graphics.Color.Companion.Transparent
 import androidx.compose.ui.graphics.Color.Companion.Unspecified
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.Loginscreen.Data.bottomNavBarScreen
+import com.example.Loginscreen.Data.Models.bottomNavBarScreen
 import com.example.Loginscreen.Presentation.Component.CustomBadgeItem
 import com.example.Loginscreen.Presentation.ui.theme.offWhite
 import com.example.Loginscreen.Presentation.ui.theme.primaryColor
@@ -47,7 +41,7 @@ fun BottomNavBarScreen(navigator: NavController) {
                         currentIndex == item.route
 
                     NavigationBarItem(
-                       
+
                         colors = NavigationBarItemDefaults.colors(
 
                             indicatorColor = primaryColor,
