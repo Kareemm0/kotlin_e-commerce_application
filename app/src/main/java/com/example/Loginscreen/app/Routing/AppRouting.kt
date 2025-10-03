@@ -29,6 +29,6 @@ fun AppRouting(controller: NavHostController) {
         composable(Routes.SPLASH) { SplashScreen(controller) }
         composable(Routes.ONBOARDING) { OnBoardingScreen(controller) }
         composable(Routes.NAVBAR) { BottomNavBarScreen(controller) }
-      
+
     }
 }

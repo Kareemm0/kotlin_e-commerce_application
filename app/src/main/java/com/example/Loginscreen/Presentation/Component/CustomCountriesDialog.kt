@@ -21,14 +21,16 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import com.example.Loginscreen.Data.Models.CountriesModel
 import com.example.Loginscreen.Presentation.ui.theme.offWhite
+import coil.compose.AsyncImage
 
 @Composable
 
 fun CustomCountriesDialog(
     onDismissable: () -> Unit,
-    countryName: String,
-    countryFlag: Painter,
+    countries: List<CountriesModel>,
+    image: Painter
 ) {
 
     Dialog(
@@ -51,19 +53,24 @@ fun CustomCountriesDialog(
                 contentPadding = PaddingValues(horizontal = 16.dp, vertical = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                items(10) {
+                items(countries.size) { index ->
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
 
-// AsyncImage()
+
+//                        AsyncImage(
+//                            state = image
+//
+//                        )
+
                         Image(
-                            painter = countryFlag,
+                            painter = image,
                             contentDescription = "",
 
                             )
-                        Text(countryName)
+                        Text(countries[index].name)
                     }
                 }
             }

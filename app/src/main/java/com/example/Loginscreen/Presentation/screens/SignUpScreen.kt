@@ -30,12 +30,14 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.Loginscreen.Core.Component.CustomAppButton
 import com.example.Loginscreen.Core.Component.CustomAppTextFormFiled
 import com.example.Loginscreen.Core.Extensions.H
 import com.example.Loginscreen.Presentation.Component.CustomCountriesDialog
 import com.example.Loginscreen.Presentation.Component.HaveAccountText
+import com.example.Loginscreen.Presentation.ViewModels.SignUpViewModel
 import com.example.Loginscreen.Presentation.ui.theme.offWhite
 import com.example.Loginscreen.Presentation.ui.theme.primaryColor
 import com.example.Loginscreen.R
@@ -44,28 +46,7 @@ import com.example.Loginscreen.R
 
 fun SignUpScreen(navigator: NavController) {
 
-    //! Controllers
-    var userName by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
-    var phone by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
-    var confirmPassword by remember { mutableStateOf("") }
-
-    //! validations
-    var userNameError by remember { mutableStateOf("") }
-    var emailError by remember { mutableStateOf("") }
-    var phoneError by remember { mutableStateOf("") }
-    var passwordError by remember { mutableStateOf("") }
-    var confirmPasswordError by remember { mutableStateOf("") }
-
-    //! visibility State
-    var passwordVisibility by remember { mutableStateOf(false) }
-    var confirmPasswordVisibility by remember { mutableStateOf(false) }
-
-    //! Dialog State
-
-    var isDialogOpen by remember { mutableStateOf(false) }
-
+    val vm: SignUpViewModel = viewModel()
 
 
     Box(
@@ -86,14 +67,14 @@ fun SignUpScreen(navigator: NavController) {
             16.H
             //! User Name Filed
             CustomAppTextFormFiled(
-                value = userName,
+                value = vm.userName,
                 {
-                    userName = it
+                    vm.userName = it
                 },
                 label = {
                     Text(
-                        userNameError.ifEmpty { "User Name" }, color =
-                            if (userName.isNotEmpty()) Red else Unspecified
+                        vm.userNameError.ifEmpty { "User Name" }, color =
+                            if (vm.userName.isNotEmpty()) Red else Unspecified
                     )
                 },
                 leadingIcon = {
@@ -103,14 +84,14 @@ fun SignUpScreen(navigator: NavController) {
             16.H
             //! Email Text Filed
             CustomAppTextFormFiled(
-                value = email,
+                value = vm.email,
                 {
-                    email = it
+                    vm.email = it
                 },
                 label = {
                     Text(
-                        emailError.ifEmpty { "Email" },
-                        color = if (email.isNotEmpty()) Red else Unspecified
+                        vm.emailError.ifEmpty { "Email" },
+                        color = if (vm.email.isNotEmpty()) Red else Unspecified
                     )
                 }, leadingIcon = {
                     Icon(Icons.Default.Email, contentDescription = "")
@@ -120,14 +101,14 @@ fun SignUpScreen(navigator: NavController) {
             16.H
             //! Phone Text Filed
             CustomAppTextFormFiled(
-                value = phone,
+                value = vm.phone,
                 {
-                    phone = it
+                    vm.phone = it
                 },
                 label = {
                     Text(
-                        phoneError.ifEmpty { "Phone Number " },
-                        color = if (phone.isNotEmpty()) Red else Unspecified
+                        vm.phoneError.ifEmpty { "Phone Number " },
+                        color = if (vm.phone.isNotEmpty()) Red else Unspecified
                     )
                 }, leadingIcon = {
                     Icon(Icons.Default.Phone, contentDescription = "")
@@ -137,61 +118,63 @@ fun SignUpScreen(navigator: NavController) {
             16.H
             //! Password Text Filed
             CustomAppTextFormFiled(
-                value = password,
+                value = vm.password,
                 {
-                    password = it
+                    vm.password = it
                 },
                 label = {
                     Text(
-                        passwordError.ifEmpty { "Password " },
-                        color = if (password.isNotEmpty()) Red else Unspecified
+                        vm.passwordError.ifEmpty { "Password " },
+                        color = if (vm.password.isNotEmpty()) Red else Unspecified
                     )
                 },
                 leadingIcon = {
                     Icon(Icons.Default.Lock, contentDescription = "")
                 },
                 trailingIcon = {
-                    val image = if (passwordVisibility)
+                    val image = if (vm.passwordVisibility)
                         painterResource(id = R.drawable.visibility) else
                         painterResource(id = R.drawable.visibility_off)
 
                     Icon(
                         painter = image, contentDescription = "",
-                        modifier = Modifier.clickable { passwordVisibility = !passwordVisibility }
+                        modifier = Modifier.clickable {
+                            vm.passwordVisibility = !vm.passwordVisibility
+                        }
                     )
 
                 },
-                visualTransformation = if (passwordVisibility) VisualTransformation.None else PasswordVisualTransformation()
+                visualTransformation = if (vm.passwordVisibility) VisualTransformation.None else PasswordVisualTransformation()
 
             )
             16.H
             //! Confirm Password  Text Filed
             CustomAppTextFormFiled(
-                value = confirmPassword,
+                value = vm.confirmPassword,
                 {
-                    confirmPassword = it
+                    vm.confirmPassword = it
                 },
                 label = {
                     Text(
-                        confirmPasswordError.ifEmpty { "Confirm Password " },
-                        color = if (confirmPassword.isNotEmpty()) Red else Unspecified
+                        vm.confirmPasswordError.ifEmpty { "Confirm Password " },
+                        color = if (vm.confirmPassword.isNotEmpty()) Red else Unspecified
                     )
                 },
                 leadingIcon = {
                     Icon(Icons.Default.Lock, contentDescription = "")
                 },
                 trailingIcon = {
-                    val image = if (confirmPasswordVisibility)
+                    val image = if (vm.confirmPasswordVisibility)
                         painterResource(id = R.drawable.visibility) else painterResource(id = R.drawable.visibility_off)
                     Icon(
                         painter = image,
                         modifier = Modifier.clickable {
-                            confirmPasswordVisibility = !confirmPasswordVisibility
+                            vm.confirmPasswordVisibility = !vm.confirmPasswordVisibility
                         }, contentDescription = ""
                     )
 
                 },
-                visualTransformation = if (confirmPasswordVisibility) VisualTransformation.None else PasswordVisualTransformation()
+                visualTransformation = if (vm.confirmPasswordVisibility) VisualTransformation.None else PasswordVisualTransformation()
 
             )
             16.H
@@ -200,7 +183,7 @@ fun SignUpScreen(navigator: NavController) {
                 contentAlignment = Alignment.CenterStart,
                 modifier = Modifier
                     .clickable {
-                        isDialogOpen = true
+                        vm.isDialogOpen = true
                     }
                     .fillMaxWidth(0.5f)
                     .background(
@@ -228,13 +211,14 @@ fun SignUpScreen(navigator: NavController) {
         }
     }
 
-    if (isDialogOpen) {
+    if (vm.isDialogOpen) {
         CustomCountriesDialog(
             {
-                isDialogOpen = false
+                vm.isDialogOpen = false
             },
-            "Egypt",
-            painterResource(R.drawable.ic_launcher_background)
+            countries = vm.state,
+            image = painterResource(R.drawable.ic_launcher_background)
+
         )
     }
 }

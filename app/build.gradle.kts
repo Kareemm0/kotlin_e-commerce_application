@@ -2,6 +2,7 @@ plugins {
 
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -69,8 +70,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.android.lottie.compose)
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.coil)
-    implementation("com.squareup.retrofit:retrofit:2.0.0-beta2")
-    implementation("com.google.code.gson:gson:2.13.2")
-    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+    implementation(libs.coil.compose)
+    implementation(libs.retrofit)
+    implementation(libs.gson)
+    implementation(libs.converter.gson)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 }
