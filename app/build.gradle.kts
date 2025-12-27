@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
 
     alias(libs.plugins.android.application)
@@ -37,8 +39,12 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
+
+
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_1_8)
+        }
     }
     buildFeatures {
         compose = true
@@ -55,7 +61,7 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
+
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
@@ -71,16 +77,12 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.android.lottie.compose)
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.coil.compose)
+
     implementation(libs.retrofit)
-    implementation(libs.gson)
-    implementation(libs.converter.gson)
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
+
     implementation(libs.androidx.hilt.navigation.fragment)
-    implementation(libs.androidx.room.runtime)
+
     implementation(libs.androidx.material.icons.extended)
-    kapt(libs.androidx.room.compiler)
-    kapt(libs.androidx.hilt.compiler)
+
     implementation(libs.androidx.hilt.work)
-    annotationProcessor(libs.androidx.hilt.compiler)
 }

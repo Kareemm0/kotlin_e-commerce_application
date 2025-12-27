@@ -14,7 +14,6 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.Loginscreen.R
-import com.example.Loginscreen.app.Routing.Routes
 import kotlinx.coroutines.delay
 
 
@@ -30,11 +29,11 @@ fun SplashScreen(navigator: NavController) {
         speed = 0.7f
     )
 
-    LaunchedEffect(Unit) {
-        delay(7000)
-
-        navigator.navigate(Routes.ONBOARDING)
-    }
+//    LaunchedEffect(Unit) {
+//        delay(7000)
+//
+//        navigator.navigate(Routes.ONBOARDING)
+//    }
 
     Box(
         modifier = Modifier.fillMaxSize(),
